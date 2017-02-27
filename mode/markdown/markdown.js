@@ -120,7 +120,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     state.quote = 0;
     // Reset state.indentedCode
     state.indentedCode = false;
-    if (htmlModeMissing && state.f == htmlBlock) {
+    if (state.f == htmlBlock) {
       state.f = inlineNormal;
       state.block = blockNormal;
     }
@@ -245,7 +245,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
       state.f = state.block = leavingLocal;
       return getType(state)
     } else if (state.fencedChars && stream.skipTo(state.fencedChars)) {
-      return "commment"
+      return "comment"
     } else if (state.localMode) {
       return state.localMode.token(stream, state.localState);
     } else {
