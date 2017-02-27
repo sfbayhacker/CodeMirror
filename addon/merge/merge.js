@@ -638,7 +638,6 @@
   var dmp = new diff_match_patch();
   function getDiff(a, b, ignoreWhitespace) {
     var diff = dmp.diff_main(a, b);
-    var diffStr;
     // The library sometimes leaves in empty parts, which confuse the algorithm
     for (var i = 0; i < diff.length; ++i) {
       var part = diff[i];
